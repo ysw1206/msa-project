@@ -1,13 +1,11 @@
-import org.gradle.api.artifacts.dsl.DependencyHandler
+plugins {
+    kotlin("jvm")
+}
 
-fun DependencyHandler.implementation(dep: Any) {}
+dependencies {
+    implementation(kotlin("stdlib"))
+}
 
-if (gradle.startParameter.isOffline) {
-    println("Offline build - skipped ${'$'}project.path")
-} else {
-    apply(plugin = "org.jetbrains.kotlin.jvm")
-
-    dependencies {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    }
+tasks.getByName<Jar>("jar") {
+    enabled = true
 }

@@ -4,10 +4,10 @@ import javax.crypto.spec.SecretKeySpec
 
 object JwtUtil {
     fun createToken(subject: String, secret: String): String {
-        val header = Base64.getUrlEncoder().withoutPadding()
-            .encodeToString("{""alg"":""HS256"",""typ"":""JWT""}".toByteArray())
-        val payload = Base64.getUrlEncoder().withoutPadding()
-            .encodeToString("{""sub"":""$subject""}".toByteArray())
+        val headerJson = "{" + "\"alg\":\"HS256\",\"typ\":\"JWT\"}"
+        val payloadJson = "{" + "\"sub\":\"$subject\"}"
+        val header = Base64.getUrlEncoder().withoutPadding().encodeToString(headerJson.toByteArray())
+        val payload = Base64.getUrlEncoder().withoutPadding().encodeToString(payloadJson.toByteArray())
         val signature = hmacSha256("$header.$payload", secret)
         val sigEncoded = Base64.getUrlEncoder().withoutPadding().encodeToString(signature)
         return "$header.$payload.$sigEncoded"
