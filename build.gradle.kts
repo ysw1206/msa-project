@@ -4,7 +4,7 @@ buildscript {
     }
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:1.9.22") // spring 플러그인이 내부적으로 사용하는 플러그인
+        classpath("org.jetbrains.kotlin:kotlin-allopen:1.9.22")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:3.2.5")
         classpath("io.spring.gradle:dependency-management-plugin:1.1.4")
     }
