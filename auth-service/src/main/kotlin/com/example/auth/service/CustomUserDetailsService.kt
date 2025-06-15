@@ -15,7 +15,7 @@ class CustomUserDetailsService : UserDetailsService {
     override fun loadUserByUsername(username: String): UserDetails {
         // Returns a dummy user. Password uses {noop} encoder for simplicity.
         return User.withUsername(username)
-            .password("{noop}password")
+            .password("password")
             .roles("USER")
             .build()
     }
