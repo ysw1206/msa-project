@@ -1,3 +1,10 @@
+plugins {
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
+    kotlin("jvm")
+    kotlin("plugin.spring")
+}
+
 buildscript {
     repositories {
         mavenCentral()
@@ -5,8 +12,6 @@ buildscript {
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
         classpath("org.jetbrains.kotlin:kotlin-allopen:1.9.22")
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.2.5")
-        classpath("io.spring.gradle:dependency-management-plugin:1.1.4")
     }
 }
 
