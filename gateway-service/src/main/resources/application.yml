@@ -1,3 +1,19 @@
 spring:
   application:
     name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/user/**
+        - id: public-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/public/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8081/oauth2/jwks
