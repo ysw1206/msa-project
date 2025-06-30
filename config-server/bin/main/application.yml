@@ -1,3 +1,12 @@
 spring:
   application:
     name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ysw1206/config-repo
+          # username: <your-username>
+          # password: <your-token>
+server:
+  port: 8888

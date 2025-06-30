@@ -7,4 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 class HelloController {
     @GetMapping("/hello")
     fun hello() = "Hello from auth-service"
+
+    @GetMapping("/auth/check")
+    fun check() = "Auth service is running"
 }

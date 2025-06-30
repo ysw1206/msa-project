@@ -5,7 +5,7 @@ spring:
     gateway:
       routes:
         - id: user-service
-          uri: http://localhost:8082
+          uri: lb://user-service
           predicates:
             - Path=/api/user/**
           filters:
@@ -21,6 +21,10 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://localhost:8081/oauth2/jwks
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
